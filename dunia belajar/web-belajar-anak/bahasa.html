@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bahasa Indonesia 7–10 Tahun</title>
+    <style>
+      body {
+        margin: 0;
+        font-family: "Comic Sans MS", cursive;
+        background: linear-gradient(to bottom, #fff0f5, #e0f7fa);
+        text-align: center;
+        padding: 20px;
+      }
+
+      header {
+        background-color: #ff8a65;
+        color: white;
+        padding: 20px;
+        font-size: 24px;
+        font-weight: bold;
+      }
+
+      .menu {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-top: 40px;
+        gap: 20px;
+      }
+
+      .menu-card {
+        background-color: white;
+        border-radius: 16px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        width: 220px;
+        padding: 20px;
+        cursor: pointer;
+        transition: transform 0.3s ease;
+      }
+
+      .menu-card:hover {
+        transform: scale(1.05);
+      }
+
+      .menu-card img {
+        width: 80px;
+        margin-bottom: 15px;
+      }
+
+      .menu-card h3 {
+        font-size: 18px;
+        color: #444;
+      }
+
+      .back-button {
+        margin-top: 40px;
+        padding: 12px 24px;
+        font-size: 18px;
+        background-color: #ffd54f;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+      }
+
+      .back-button:hover {
+        background-color: #fff176;
+      }
+    </style>
+  </head>
+  <body>
+    <header>Bahasa Indonesia 📚 Usia 7–10 Tahun</header>
+
+    <div class="menu">
+      <div class="menu-card" onclick="alert('Cerita akan ditambahkan')">
+        <img
+          src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png"
+          alt="Cerita"
+        />
+        <h3>Membaca Cerita Pendek</h3>
+      </div>
+
+      <div
+        class="menu-card"
+        onclick="alert('Pemahaman bacaan akan ditambahkan')"
+      >
+        <img
+          src="https://cdn-icons-png.flaticon.com/512/3181/3181220.png"
+          alt="Pemahaman"
+        />
+        <h3>Pemahaman Cerita</h3>
+      </div>
+
+      <div
+        class="menu-card"
+        onclick="alert('Latihan tata bahasa akan ditambahkan')"
+      >
+        <img
+          src="https://cdn-icons-png.flaticon.com/512/2857/2857033.png"
+          alt="Tata Bahasa"
+        />
+        <h3>Latihan Tata Bahasa</h3>
+      </div>
+
+      <div
+        class="menu-card"
+        onclick="alert('Sinonim Antonim akan ditambahkan')"
+      >
+        <img
+          src="https://cdn-icons-png.flaticon.com/512/2891/2891308.png"
+          alt="Sinonim Antonim"
+        />
+        <h3>Sinonim & Antonim</h3>
+      </div>
+    </div>
+
+    <button class="back-button" onclick="window.location.href='usia7-10.html'">
+      ⬅ Kembali ke Menu Utama
+    </button>
+  </body>
+</html>

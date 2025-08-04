@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Selamat Datang di Dunia Belajarku!</title>
+    <style>
+      body {
+        margin: 0;
+        font-family: "Comic Sans MS", cursive, sans-serif;
+        background: linear-gradient(to bottom, #ffe9d6, #ffffff);
+      }
+
+      header {
+        background-color: #ff7b54;
+        padding: 20px;
+        color: white;
+        text-align: center;
+        font-size: 28px;
+        font-weight: bold;
+      }
+
+      .hero {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 40px 20px;
+      }
+
+      .hero img {
+        width: 280px;
+        max-width: 90%;
+        margin-bottom: 20px;
+      }
+
+      .hero h2 {
+        font-size: 24px;
+        margin-bottom: 10px;
+      }
+
+      .hero p {
+        font-size: 18px;
+        color: #333;
+        max-width: 600px;
+      }
+
+      .start-button {
+        margin-top: 30px;
+        background-color: #ffbd59;
+        padding: 15px 30px;
+        border: none;
+        border-radius: 10px;
+        font-size: 18px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+
+      .start-button:hover {
+        background-color: #ffc978;
+      }
+
+      .age-selection {
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        padding: 20px;
+      }
+
+      .age-selection button {
+        margin: 10px;
+        padding: 12px 25px;
+        font-size: 18px;
+        background-color: #6dcff6;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+      }
+
+      .age-selection button:hover {
+        background-color: #91dbfc;
+      }
+    </style>
+  </head>
+  <body>
+    <header>Dunia Belajarku ✨</header>
+
+    <!-- Audio Lokal -->
+    <audio id="bgMusic" loop>
+      <source src="audio/lobby.mp3" type="audio/mpeg" />
+    </audio>
+    <audio id="clickSound">
+      <source src="audio/button click.mp3" type="audio/mpeg" />
+    </audio>
+
+    <section class="hero" id="homeSection">
+      <img
+        src="https://cdn-icons-png.flaticon.com/512/616/616408.png"
+        alt="Karakter lucu"
+      />
+      <h2>Yuk Mulai Petualangan Belajarmu!</h2>
+      <p>
+        Di sini kamu bisa belajar, bermain, dan menemukan bakatmu. Belajar jadi
+        seru dan menyenangkan! 🌈
+      </p>
+      <button class="start-button" onclick="mulai()">Mulai Sekarang</button>
+    </section>
+
+    <section class="age-selection" id="ageSelection">
+      <h2>Pilih Usia Kamu 👇</h2>
+      <a href="usia-3-6.html"
+        ><button class="age-button" onclick="playClick();">3–6 Tahun</button></a
+      >
+      <a href="usia-7-10.html"
+        ><button class="age-button" onclick="playClick();">
+          7–10 Tahun
+        </button></a
+      >
+      <a href="usia-11-13.html"
+        ><button class="age-button" onclick="playClick();">
+          11–13 Tahun
+        </button></a
+      >
+      <a href="usia-14-17.html"
+        ><button class="age-button" onclick="playClick();">
+          14–17 Tahun
+        </button></a
+      >
+    </section>
+
+    <script>
+      const clickSound = document.getElementById("clickSound");
+      const bgMusic = document.getElementById("bgMusic");
+      const homeSection = document.getElementById("homeSection");
+      const ageSelection = document.getElementById("ageSelection");
+      let musicStarted = false;
+
+      function mulai() {
+        clickSound.currentTime = 0;
+        clickSound.play();
+
+        if (!musicStarted) {
+          bgMusic.play();
+          musicStarted = true;
+        }
+
+        homeSection.style.display = "none";
+        ageSelection.style.display = "flex";
+      }
+
+      function playClick() {
+        clickSound.currentTime = 0;
+        clickSound.play();
+      }
+    </script>
+  </body>
+</html>

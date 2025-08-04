@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Soal Cerita Pendek</title>
+    <style>
+      body {
+        font-family: "Comic Sans MS", cursive;
+        margin: 0;
+        background: linear-gradient(to bottom, #e0f7fa, #fff3e0);
+        padding: 20px;
+      }
+      header {
+        background-color: #4caf50;
+        color: white;
+        padding: 20px;
+        text-align: center;
+        font-size: 24px;
+        font-weight: bold;
+      }
+      .question-box {
+        background: white;
+        border-radius: 12px;
+        padding: 20px;
+        max-width: 700px;
+        margin: 30px auto;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      }
+      .question {
+        font-size: 18px;
+        margin-bottom: 10px;
+      }
+      .answer {
+        margin-bottom: 20px;
+      }
+      input[type="radio"] {
+        margin-right: 10px;
+      }
+      button {
+        padding: 10px 20px;
+        font-size: 16px;
+        background-color: #ffcd60;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+      }
+      button:hover {
+        background-color: #ffe191;
+      }
+      .result {
+        font-size: 18px;
+        font-weight: bold;
+        color: #333;
+        margin-top: 20px;
+      }
+      .back-button {
+        display: block;
+        width: fit-content;
+        margin: 40px auto 0;
+        background-color: #9c27b0;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <header>❓ Jawab Pertanyaan dari Cerita</header>
+
+    <div class="question-box">
+      <div class="question">1. Siapa yang menantang balapan?</div>
+      <div class="answer">
+        <label><input type="radio" name="q1" value="a" />Kura-Kura</label><br />
+        <label><input type="radio" name="q1" value="b" />Kelinci</label><br />
+        <label><input type="radio" name="q1" value="c" />Harimau</label>
+      </div>
+
+      <div class="question">2. Apa yang dilakukan Kelinci saat balapan?</div>
+      <div class="answer">
+        <label><input type="radio" name="q2" value="a" />Tidur</label><br />
+        <label><input type="radio" name="q2" value="b" />Lari terus</label
+        ><br />
+        <label
+          ><input type="radio" name="q2" value="c" />Membantu Kura-Kura</label
+        >
+      </div>
+
+      <div class="question">3. Mengapa Kura-Kura bisa menang?</div>
+      <div class="answer">
+        <label><input type="radio" name="q3" value="a" />Karena cepat</label
+        ><br />
+        <label
+          ><input type="radio" name="q3" value="b" />Karena sabar dan tidak
+          berhenti</label
+        ><br />
+        <label
+          ><input type="radio" name="q3" value="c" />Karena dibantu hewan
+          lain</label
+        >
+      </div>
+
+      <button onclick="cekJawaban()">Cek Jawaban</button>
+      <div class="result" id="hasil"></div>
+    </div>
+
+    <button
+      class="back-button"
+      onclick="window.location.href='bahasa-cerita.html'"
+    >
+      ⬅ Kembali ke Cerita
+    </button>
+
+    <script>
+      function cekJawaban() {
+        const jawaban1 = document.querySelector('input[name="q1"]:checked');
+        const jawaban2 = document.querySelector('input[name="q2"]:checked');
+        const jawaban3 = document.querySelector('input[name="q3"]:checked');
+        let skor = 0;
+
+        if (jawaban1 && jawaban1.value === "b") skor++;
+        if (jawaban2 && jawaban2.value === "a") skor++;
+        if (jawaban3 && jawaban3.value === "b") skor++;
+
+        if (!jawaban1 || !jawaban2 || !jawaban3) {
+          document.getElementById("hasil").innerText =
+            "Yuk isi semua pertanyaannya dulu ya!";
+        } else {
+          document.getElementById(
+            "hasil"
+          ).innerText = `Nilaimu: ${skor} dari 3 soal`;
+        }
+      }
+    </script>
+  </body>
+</html>

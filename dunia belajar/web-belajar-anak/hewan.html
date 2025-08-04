@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Suara Hewan</title>
+    <style>
+      body {
+        font-family: "Comic Sans MS", cursive;
+        margin: 0;
+        background: linear-gradient(to bottom, #e0f7fa, #fff3e0);
+        text-align: center;
+        padding: 20px;
+      }
+
+      header {
+        background-color: #4db6ac;
+        color: white;
+        padding: 20px;
+        font-size: 24px;
+        font-weight: bold;
+      }
+
+      .animal-card {
+        display: inline-block;
+        margin: 20px;
+        cursor: pointer;
+        border-radius: 12px;
+        background-color: #ffffff;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        padding: 10px;
+        width: 150px;
+      }
+
+      .animal-card img {
+        width: 100px;
+        height: 100px;
+      }
+
+      .animal-card p {
+        font-size: 16px;
+        color: #333;
+        margin: 10px 0 0;
+      }
+
+      .back-button {
+        margin-top: 40px;
+        padding: 10px 20px;
+        font-size: 18px;
+        background-color: #ffcd60;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+      }
+
+      .back-button:hover {
+        background-color: #ffe191;
+      }
+
+      audio {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <header>Suara Hewan 🐾</header>
+
+    <div class="animal-card" onclick="playSound('anjing')">
+      <img
+        src="https://cdn-icons-png.flaticon.com/512/616/616408.png"
+        alt="Anjing"
+      />
+      <p>Anjing</p>
+    </div>
+
+    <div class="animal-card" onclick="playSound('kucing')">
+      <img
+        src="https://cdn-icons-png.flaticon.com/512/616/616430.png"
+        alt="Kucing"
+      />
+      <p>Kucing</p>
+    </div>
+
+    <div class="animal-card" onclick="playSound('ayam')">
+      <img
+        src="https://cdn-icons-png.flaticon.com/512/1998/1998701.png"
+        alt="Ayam"
+      />
+      <p>Ayam</p>
+    </div>
+
+    <div class="animal-card" onclick="playSound('sapi')">
+      <img
+        src="https://cdn-icons-png.flaticon.com/512/616/616408.png"
+        alt="Sapi"
+      />
+      <p>Sapi</p>
+    </div>
+
+    <button class="back-button" onclick="window.location.href='usia3-6.html'">
+      ⬅ Kembali
+    </button>
+
+    <audio id="anjing" src="https://example.com/suara/anjing.mp3"></audio>
+    <audio id="kucing" src="https://example.com/suara/kucing.mp3"></audio>
+    <audio id="ayam" src="https://example.com/suara/ayam.mp3"></audio>
+    <audio id="sapi" src="https://example.com/suara/sapi.mp3"></audio>
+
+    <script>
+      function playSound(id) {
+        document.getElementById(id).play();
+      }
+    </script>
+  </body>
+</html>

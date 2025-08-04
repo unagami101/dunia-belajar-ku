@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Belajar Bentuk & Pola</title>
+    <style>
+      body {
+        font-family: "Comic Sans MS", cursive;
+        margin: 0;
+        background: linear-gradient(to bottom, #fffde7, #f8bbd0);
+        text-align: center;
+        padding: 20px;
+      }
+
+      header {
+        background-color: #f06292;
+        color: white;
+        padding: 20px;
+        font-size: 24px;
+        font-weight: bold;
+      }
+
+      .shape-card {
+        display: inline-block;
+        width: 140px;
+        height: 140px;
+        border-radius: 16px;
+        background-color: white;
+        margin: 20px;
+        color: #444;
+        font-size: 18px;
+        font-weight: bold;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        cursor: pointer;
+      }
+
+      .shape-card img {
+        width: 60px;
+        margin-bottom: 10px;
+      }
+
+      .back-button {
+        margin-top: 40px;
+        padding: 10px 20px;
+        font-size: 18px;
+        background-color: #ffd54f;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+      }
+
+      .back-button:hover {
+        background-color: #fff176;
+      }
+
+      audio {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <header>Bentuk & Pola 🔷</header>
+
+    <div class="shape-card" onclick="playSound('lingkaran')">
+      <img
+        src="https://cdn-icons-png.flaticon.com/512/32/32368.png"
+        alt="Lingkaran"
+      />
+      Lingkaran
+    </div>
+    <div class="shape-card" onclick="playSound('persegi')">
+      <img
+        src="https://cdn-icons-png.flaticon.com/512/61/61168.png"
+        alt="Persegi"
+      />
+      Persegi
+    </div>
+    <div class="shape-card" onclick="playSound('segitiga')">
+      <img
+        src="https://cdn-icons-png.flaticon.com/512/148/148836.png"
+        alt="Segitiga"
+      />
+      Segitiga
+    </div>
+    <div class="shape-card" onclick="playSound('bintang')">
+      <img
+        src="https://cdn-icons-png.flaticon.com/512/616/616530.png"
+        alt="Bintang"
+      />
+      Bintang
+    </div>
+
+    <button class="back-button" onclick="window.location.href='usia3-6.html'">
+      ⬅ Kembali
+    </button>
+
+    <!-- Ganti link suara sesuai file yang kamu punya -->
+    <audio id="lingkaran" src="https://example.com/suara/lingkaran.mp3"></audio>
+    <audio id="persegi" src="https://example.com/suara/persegi.mp3"></audio>
+    <audio id="segitiga" src="https://example.com/suara/segitiga.mp3"></audio>
+    <audio id="bintang" src="https://example.com/suara/bintang.mp3"></audio>
+
+    <script>
+      function playSound(id) {
+        document.getElementById(id).play();
+      }
+    </script>
+  </body>
+</html>
