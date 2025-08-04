@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Belajar Usia 3–6 Tahun</title>
+    <style>
+      body {
+        margin: 0;
+        font-family: "Comic Sans MS", cursive, sans-serif;
+        background: linear-gradient(to bottom, #fefcea, #f1daff);
+        overflow-x: hidden;
+      }
+
+      header {
+        background-color: #f28d8d;
+        padding: 20px;
+        color: white;
+        text-align: center;
+        font-size: 26px;
+        font-weight: bold;
+      }
+
+      .content {
+        text-align: center;
+        padding: 40px 20px;
+      }
+
+      .content h2 {
+        font-size: 24px;
+        color: #444;
+      }
+
+      .content p {
+        font-size: 18px;
+        color: #666;
+        max-width: 600px;
+        margin: 0 auto;
+      }
+
+      .menu-button {
+        margin-top: 30px;
+        background-color: #ffcd60;
+        padding: 15px 25px;
+        border: none;
+        border-radius: 12px;
+        font-size: 18px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+
+      .menu-button:hover {
+        background-color: #ffe191;
+      }
+
+      .activity-section {
+        margin-top: 40px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+      }
+
+      .activity-card {
+        background-color: #fff;
+        border-radius: 12px;
+        padding: 20px;
+        width: 220px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        cursor: pointer;
+        transition: transform 0.3s ease;
+      }
+
+      .activity-card:hover {
+        transform: scale(1.05);
+      }
+
+      .activity-card img {
+        width: 100px;
+        margin-bottom: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <header>Belajar Seru Usia 3–6 Tahun 🎨</header>
+
+    <section class="content">
+      <h2>Hai, Adik Pintar! 😊</h2>
+      <p>
+        Yuk belajar sambil bermain! Pilih kegiatan yang kamu suka di bawah ini~
+      </p>
+
+      <div class="activity-section">
+        <div class="activity-card" onclick="window.location.href='warna.html'">
+          <img
+            src="https://cdn-icons-png.flaticon.com/512/263/263115.png"
+            alt="Warna"
+          />
+          <div>Belajar Warna</div>
+        </div>
+
+        <div class="activity-card" onclick="window.location.href='angka.html'">
+          >
+          <img
+            src="https://cdn-icons-png.flaticon.com/512/1112/1112679.png"
+            alt="Angka"
+          />
+          <div>Belajar Angka</div>
+        </div>
+        <div class="activity-card" onclick="window.location.href='bentuk.html'">
+          <img
+            src="https://cdn-icons-png.flaticon.com/512/3448/3448334.png"
+            alt="Bentuk"
+          />
+          <div>Bentuk & Pola</div>
+        </div>
+
+        <div class="activity-card" onclick="window.location.href='hewan.html'">
+          <img
+            src="https://cdn-icons-png.flaticon.com/512/616/616408.png"
+            alt="Hewan"
+          />
+          <div>Suara Hewan</div>
+        </div>
+      </div>
+
+      <button class="menu-button" onclick="window.location.href='index.html'">
+        ⬅ Kembali ke Beranda
+      </button>
+    </section>
+  </body>
+</html>

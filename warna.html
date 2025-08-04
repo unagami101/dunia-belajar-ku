@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Belajar Warna</title>
+    <style>
+      body {
+        font-family: "Comic Sans MS", cursive;
+        margin: 0;
+        background: linear-gradient(to bottom, #fff7e6, #ffd6e0);
+        text-align: center;
+        padding: 20px;
+      }
+
+      header {
+        background-color: #f28d8d;
+        color: white;
+        padding: 20px;
+        font-size: 24px;
+        font-weight: bold;
+      }
+
+      .color-card {
+        display: inline-block;
+        width: 140px;
+        height: 140px;
+        border-radius: 16px;
+        margin: 20px;
+        color: white;
+        font-size: 18px;
+        font-weight: bold;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      }
+
+      .red {
+        background-color: red;
+      }
+      .blue {
+        background-color: blue;
+      }
+      .yellow {
+        background-color: gold;
+        color: #444;
+      }
+      .green {
+        background-color: green;
+      }
+      .purple {
+        background-color: purple;
+      }
+
+      .back-button {
+        margin-top: 40px;
+        padding: 10px 20px;
+        font-size: 18px;
+        background-color: #ffcd60;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+      }
+
+      .back-button:hover {
+        background-color: #ffe191;
+      }
+
+      audio {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <header>Belajar Warna 🌈</header>
+
+    <div class="color-card red" onclick="playSound('merah')">Merah</div>
+    <div class="color-card blue" onclick="playSound('biru')">Biru</div>
+    <div class="color-card yellow" onclick="playSound('kuning')">Kuning</div>
+    <div class="color-card green" onclick="playSound('hijau')">Hijau</div>
+    <div class="color-card purple" onclick="playSound('ungu')">Ungu</div>
+
+    <button class="back-button" onclick="window.location.href='usia3-6.html'">
+      ⬅ Kembali
+    </button>
+
+    <audio id="merah" src="https://example.com/suara/merah.mp3"></audio>
+    <audio id="biru" src="https://example.com/suara/biru.mp3"></audio>
+    <audio id="kuning" src="https://example.com/suara/kuning.mp3"></audio>
+    <audio id="hijau" src="https://example.com/suara/hijau.mp3"></audio>
+    <audio id="ungu" src="https://example.com/suara/ungu.mp3"></audio>
+
+    <script>
+      function playSound(id) {
+        document.getElementById(id).play();
+      }
+    </script>
+  </body>
+</html>

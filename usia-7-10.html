@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Belajar Usia 7–10 Tahun</title>
+    <style>
+      body {
+        margin: 0;
+        font-family: "Comic Sans MS", cursive, sans-serif;
+        background: linear-gradient(to bottom, #d9f3ff, #ffeedd);
+        overflow-x: hidden;
+      }
+
+      header {
+        background-color: #64b5f6;
+        padding: 20px;
+        color: white;
+        text-align: center;
+        font-size: 26px;
+        font-weight: bold;
+      }
+
+      .content {
+        text-align: center;
+        padding: 40px 20px;
+      }
+
+      .content h2 {
+        font-size: 24px;
+        color: #444;
+      }
+
+      .content p {
+        font-size: 18px;
+        color: #666;
+        max-width: 600px;
+        margin: 0 auto;
+      }
+
+      .menu-button {
+        margin-top: 30px;
+        background-color: #ffd54f;
+        padding: 15px 25px;
+        border: none;
+        border-radius: 12px;
+        font-size: 18px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+
+      .menu-button:hover {
+        background-color: #fff176;
+      }
+
+      .activity-section {
+        margin-top: 40px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+      }
+
+      .activity-card {
+        background-color: #fff;
+        border-radius: 12px;
+        padding: 20px;
+        width: 240px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        cursor: pointer;
+        transition: transform 0.3s ease;
+      }
+
+      .activity-card:hover {
+        transform: scale(1.05);
+      }
+
+      .activity-card img {
+        width: 100px;
+        margin-bottom: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <header>Belajar Seru Usia 7–10 Tahun 📚</header>
+
+    <section class="content">
+      <h2>Halo, Sahabat Pintar! ✨</h2>
+      <p>Ayo pilih aktivitas belajar seru yang kamu mau di bawah ini!</p>
+
+      <div class="activity-section">
+        <div
+          class="activity-card"
+          onclick="window.location.href='matematika.html'"
+        >
+          <img
+            src="https://cdn-icons-png.flaticon.com/512/201/201818.png"
+            alt="Matematika"
+          />
+          <div>Matematika Dasar</div>
+        </div>
+
+        <div class="activity-card" onclick="window.location.href='bahasa.html'">
+          <img
+            src="https://cdn-icons-png.flaticon.com/512/167/167707.png"
+            alt="Bahasa"
+          />
+          <div>Bahasa Indonesia</div>
+        </div>
+
+        <div class="activity-card" onclick="window.location.href='sains.html'">
+          <img
+            src="https://cdn-icons-png.flaticon.com/512/679/679922.png"
+            alt="Sains"
+          />
+          <div>Sains Sederhana</div>
+        </div>
+
+        <div
+          class="activity-card"
+          onclick="window.location.href='inggris.html'"
+        >
+          <img
+            src="https://cdn-icons-png.flaticon.com/512/4712/4712109.png"
+            alt="Inggris"
+          />
+          <div>Bahasa Inggris</div>
+        </div>
+
+        <div class="activity-card" onclick="window.location.href='game.html'">
+          <img
+            src="https://cdn-icons-png.flaticon.com/512/1006/1006360.png"
+            alt="Game"
+          />
+          <div>Permainan Edukatif</div>
+        </div>
+
+        <div class="activity-card" onclick="window.location.href='cerita.html'">
+          <img
+            src="https://cdn-icons-png.flaticon.com/512/4103/4103039.png"
+            alt="Cerita"
+          />
+          <div>Cerita Bergambar</div>
+        </div>
+      </div>
+
+      <button class="menu-button" onclick="window.location.href='index.html'">
+        ⬅ Kembali ke Beranda
+      </button>
+    </section>
+  </body>
+</html>
