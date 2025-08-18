@@ -3,157 +3,1588 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Selamat Datang di Dunia Belajarku!</title>
+    <title>EduPlay - Platform Edukasi Interaktif</title>
     <style>
-      body {
+      * {
         margin: 0;
-        font-family: "Comic Sans MS", cursive, sans-serif;
-        background: linear-gradient(to bottom, #ffe9d6, #ffffff);
+        padding: 0;
+        box-sizing: border-box;
       }
 
-      header {
-        background-color: #ff7b54;
+      body {
+        font-family: "Comic Sans MS", cursive, Arial, sans-serif;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        min-height: 100vh;
+        overflow-x: hidden;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
         padding: 20px;
-        color: white;
-        text-align: center;
-        font-size: 28px;
-        font-weight: bold;
       }
 
-      .hero {
+      /* Login Screen */
+      .login-screen {
         display: flex;
         flex-direction: column;
         align-items: center;
+        justify-content: center;
+        min-height: 100vh;
         text-align: center;
-        padding: 40px 20px;
       }
 
-      .hero img {
-        width: 280px;
-        max-width: 90%;
+      .logo {
+        font-size: 4em;
+        color: #fff;
+        margin-bottom: 30px;
+        text-shadow: 3px 3px 0px #333;
+        animation: bounce 2s infinite;
+      }
+
+      @keyframes bounce {
+        0%,
+        20%,
+        50%,
+        80%,
+        100% {
+          transform: translateY(0);
+        }
+        40% {
+          transform: translateY(-30px);
+        }
+        60% {
+          transform: translateY(-15px);
+        }
+      }
+
+      .login-card {
+        background: white;
+        padding: 40px;
+        border-radius: 25px;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        min-width: 350px;
+        animation: slideIn 1s ease-out;
+      }
+
+      @keyframes slideIn {
+        from {
+          opacity: 0;
+          transform: translateY(50px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .input-group {
         margin-bottom: 20px;
+        text-align: left;
       }
 
-      .hero h2 {
-        font-size: 24px;
-        margin-bottom: 10px;
-      }
-
-      .hero p {
-        font-size: 18px;
-        color: #333;
-        max-width: 600px;
-      }
-
-      .start-button {
-        margin-top: 30px;
-        background-color: #ffbd59;
-        padding: 15px 30px;
-        border: none;
-        border-radius: 10px;
-        font-size: 18px;
+      .input-group label {
+        display: block;
+        margin-bottom: 8px;
         font-weight: bold;
-        cursor: pointer;
-        transition: background-color 0.3s ease;
+        color: #333;
       }
 
-      .start-button:hover {
-        background-color: #ffc978;
+      .input-group input,
+      .input-group select {
+        width: 100%;
+        padding: 15px;
+        border: 3px solid #ddd;
+        border-radius: 15px;
+        font-size: 16px;
+        transition: all 0.3s;
       }
 
-      .age-selection {
-        display: none;
-        flex-direction: column;
-        align-items: center;
-        padding: 20px;
+      .input-group input:focus,
+      .input-group select:focus {
+        outline: none;
+        border-color: #667eea;
+        transform: scale(1.05);
       }
 
-      .age-selection button {
-        margin: 10px;
-        padding: 12px 25px;
-        font-size: 18px;
-        background-color: #6dcff6;
+      .btn {
+        background: linear-gradient(45deg, #667eea, #764ba2);
         color: white;
         border: none;
-        border-radius: 8px;
+        padding: 15px 30px;
+        border-radius: 25px;
+        font-size: 18px;
+        cursor: pointer;
+        transition: all 0.3s;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+      }
+
+      .btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+      }
+
+      .btn:active {
+        transform: translateY(0px);
+      }
+
+      /* Main Platform */
+      .main-platform {
+        display: none;
+        padding: 20px 0;
+      }
+
+      .header {
+        background: white;
+        padding: 20px;
+        border-radius: 20px;
+        margin-bottom: 30px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 20px;
+      }
+
+      .user-info {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+      }
+
+      .avatar {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        background: linear-gradient(45deg, #ff9a56, #ff6b9d);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 24px;
+        animation: pulse 2s infinite;
+      }
+
+      @keyframes pulse {
+        0% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.1);
+        }
+        100% {
+          transform: scale(1);
+        }
+      }
+
+      .character-selector {
+        display: flex;
+        gap: 10px;
+        margin: 10px 0;
+      }
+
+      .character-btn {
+        width: 50px;
+        height: 50px;
+        border: 3px solid transparent;
+        border-radius: 15px;
+        background: #f0f0f0;
+        cursor: pointer;
+        font-size: 20px;
+        transition: all 0.3s;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .character-btn.active {
+        border-color: #667eea;
+        background: #667eea;
+        color: white;
+        transform: scale(1.1);
+      }
+
+      /* Age-based Styling */
+      .kids-mode {
+        background: linear-gradient(
+          135deg,
+          #ff9a9e 0%,
+          #fecfef 50%,
+          #fecfef 100%
+        );
+      }
+
+      .kids-mode .header {
+        background: linear-gradient(45deg, #ff6b9d, #c471ed);
+        color: white;
+      }
+
+      .teen-mode {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      }
+
+      .adult-mode {
+        background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+      }
+
+      /* Navigation */
+      .nav-tabs {
+        display: flex;
+        gap: 10px;
+        margin-bottom: 30px;
+        flex-wrap: wrap;
+      }
+
+      .nav-tab {
+        padding: 12px 24px;
+        background: rgba(255, 255, 255, 0.2);
+        color: white;
+        border: none;
+        border-radius: 25px;
+        cursor: pointer;
+        transition: all 0.3s;
+      }
+
+      .nav-tab.active {
+        background: white;
+        color: #667eea;
+        transform: scale(1.05);
+      }
+
+      /* Learning Modules */
+      .modules-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+        margin-bottom: 30px;
+      }
+
+      .module-card {
+        background: white;
+        padding: 25px;
+        border-radius: 20px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        transition: all 0.3s;
         cursor: pointer;
       }
 
-      .age-selection button:hover {
-        background-color: #91dbfc;
+      .module-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+      }
+
+      .module-icon {
+        font-size: 3em;
+        margin-bottom: 15px;
+        animation: float 3s ease-in-out infinite;
+      }
+
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0px);
+        }
+        50% {
+          transform: translateY(-10px);
+        }
+      }
+
+      /* Question Interface */
+      .question-area {
+        display: none;
+        background: white;
+        padding: 30px;
+        border-radius: 20px;
+        margin-bottom: 30px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      }
+
+      .progress-bar {
+        width: 100%;
+        height: 20px;
+        background: #e0e0e0;
+        border-radius: 10px;
+        margin-bottom: 30px;
+        overflow: hidden;
+      }
+
+      .progress-fill {
+        height: 100%;
+        background: linear-gradient(45deg, #667eea, #764ba2);
+        width: 0%;
+        transition: width 0.5s ease;
+      }
+
+      .question-text {
+        font-size: 1.5em;
+        margin-bottom: 30px;
+        color: #333;
+      }
+
+      .answers-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 15px;
+        margin-bottom: 30px;
+      }
+
+      .answer-btn {
+        padding: 20px;
+        background: #f8f9fa;
+        border: 3px solid #ddd;
+        border-radius: 15px;
+        cursor: pointer;
+        transition: all 0.3s;
+        font-size: 16px;
+      }
+
+      .answer-btn:hover:not(:disabled) {
+        background: #e9ecef;
+        transform: scale(1.05);
+      }
+
+      .answer-btn.correct {
+        background: #d4edda;
+        border-color: #28a745;
+        animation: correctAnswer 0.5s;
+      }
+
+      .answer-btn.incorrect {
+        background: #f8d7da;
+        border-color: #dc3545;
+        animation: shake 0.5s;
+      }
+
+      @keyframes correctAnswer {
+        0% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.1);
+        }
+        100% {
+          transform: scale(1);
+        }
+      }
+
+      @keyframes shake {
+        0%,
+        100% {
+          transform: translateX(0);
+        }
+        25% {
+          transform: translateX(-5px);
+        }
+        75% {
+          transform: translateX(5px);
+        }
+      }
+
+      /* Chat Interface */
+      .chat-area {
+        display: none;
+        background: white;
+        padding: 25px;
+        border-radius: 20px;
+        margin-bottom: 30px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      }
+
+      .chat-messages {
+        height: 300px;
+        overflow-y: auto;
+        border: 1px solid #ddd;
+        padding: 15px;
+        border-radius: 10px;
+        margin-bottom: 15px;
+      }
+
+      .message {
+        margin-bottom: 15px;
+        padding: 10px;
+        border-radius: 10px;
+      }
+
+      .message.bot {
+        background: #e9ecef;
+        margin-right: 50px;
+      }
+
+      .message.user {
+        background: #667eea;
+        color: white;
+        margin-left: 50px;
+      }
+
+      .chat-input {
+        display: flex;
+        gap: 10px;
+      }
+
+      .chat-input input {
+        flex: 1;
+        padding: 15px;
+        border: 2px solid #ddd;
+        border-radius: 10px;
+        font-size: 16px;
+      }
+
+      /* Report Area */
+      .report-area {
+        display: none;
+        background: white;
+        padding: 25px;
+        border-radius: 20px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      }
+
+      .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 20px;
+        margin-bottom: 30px;
+      }
+
+      .stat-card {
+        background: linear-gradient(45deg, #667eea, #764ba2);
+        color: white;
+        padding: 20px;
+        border-radius: 15px;
+        text-align: center;
+      }
+
+      .stat-number {
+        font-size: 2em;
+        font-weight: bold;
+        margin-bottom: 5px;
+      }
+
+      /* Sections */
+      .section {
+        display: block;
+      }
+
+      .mood-buttons {
+        display: flex;
+        gap: 10px;
+        margin-top: 10px;
+        flex-wrap: wrap;
+      }
+
+      .mood-btn {
+        padding: 8px 15px;
+        font-size: 14px;
+        background: #667eea;
+        color: white;
+        border: none;
+        border-radius: 15px;
+        cursor: pointer;
+        transition: all 0.3s;
+      }
+
+      .mood-btn:hover {
+        background: #5a6fd8;
+        transform: scale(1.05);
+      }
+
+      /* Celebration Animation */
+      .celebration {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 3em;
+        z-index: 1000;
+        animation: celebrate 2s ease-out;
+        pointer-events: none;
+        background: rgba(255, 255, 255, 0.9);
+        padding: 20px;
+        border-radius: 15px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+      }
+
+      @keyframes celebrate {
+        0% {
+          opacity: 0;
+          transform: translate(-50%, -50%) scale(0);
+        }
+        50% {
+          opacity: 1;
+          transform: translate(-50%, -50%) scale(1);
+        }
+        100% {
+          opacity: 0;
+          transform: translate(-50%, -50%) scale(1);
+        }
+      }
+
+      /* Responsive Design */
+      @media (max-width: 768px) {
+        .logo {
+          font-size: 2.5em;
+        }
+        .login-card {
+          min-width: 300px;
+          padding: 25px;
+        }
+        .header {
+          flex-direction: column;
+          text-align: center;
+        }
+        .modules-grid {
+          grid-template-columns: 1fr;
+        }
+        .question-text {
+          font-size: 1.2em;
+        }
+        .answers-grid {
+          grid-template-columns: 1fr;
+        }
+        .nav-tabs {
+          justify-content: center;
+        }
+      }
+
+      .hidden {
+        display: none !important;
       }
     </style>
   </head>
   <body>
-    <header>Dunia Belajarku ✨</header>
+    <!-- Login Screen -->
+    <div id="loginScreen" class="login-screen">
+      <div class="logo">🎓 EduPlay</div>
+      <div class="login-card">
+        <h2>Halo! Mari Belajar Bersama! 🌟</h2>
+        <div class="input-group">
+          <label for="userName">Nama Kamu:</label>
+          <input
+            type="text"
+            id="userName"
+            placeholder="Masukkan nama kamu..."
+          />
+        </div>
+        <div class="input-group">
+          <label for="userAge">Umur:</label>
+          <select id="userAge">
+            <option value="">Pilih umur kamu</option>
+            <option value="3">3 tahun</option>
+            <option value="4">4 tahun</option>
+            <option value="5">5 tahun</option>
+            <option value="6">6 tahun</option>
+            <option value="7">7 tahun</option>
+            <option value="8">8 tahun</option>
+            <option value="9">9 tahun</option>
+            <option value="10">10 tahun</option>
+            <option value="11">11 tahun</option>
+            <option value="12">12 tahun</option>
+            <option value="13">13 tahun</option>
+            <option value="14">14 tahun</option>
+            <option value="15">15 tahun</option>
+            <option value="16">16 tahun</option>
+            <option value="17">17 tahun</option>
+            <option value="18">18 tahun</option>
+            <option value="19">19+ tahun</option>
+          </select>
+        </div>
+        <button class="btn" onclick="startPlatform()">Mulai Belajar! 🚀</button>
+      </div>
+    </div>
 
-    <!-- Audio Lokal -->
-    <audio id="bgMusic" loop>
-      <source src="audio/lobby.mp3" type="audio/mpeg" />
-    </audio>
-    <audio id="clickSound">
-      <source src="audio/button click.mp3" type="audio/mpeg" />
-    </audio>
+    <!-- Main Platform -->
+    <div id="mainPlatform" class="main-platform">
+      <div class="container">
+        <div class="header">
+          <div class="user-info">
+            <div class="avatar" id="userAvatar">😊</div>
+            <div>
+              <h3 id="welcomeText">Halo!</h3>
+              <p id="moodCheck" class="hidden">Gimana hari ini?</p>
+              <div id="moodButtons" class="mood-buttons hidden">
+                <button class="mood-btn" onclick="setMood('baik')">
+                  Oke! 😊
+                </button>
+                <button class="mood-btn" onclick="setMood('kurang')">
+                  Kurang 😔
+                </button>
+                <button class="mood-btn" onclick="setMood('biasa')">
+                  Biasa aja
+                </button>
+              </div>
+            </div>
+          </div>
+          <div>
+            <h4>Pilih Karakter:</h4>
+            <div class="character-selector">
+              <div
+                class="character-btn"
+                onclick="selectCharacter('cool', this)"
+              >
+                😎
+              </div>
+              <div
+                class="character-btn active"
+                onclick="selectCharacter('cute', this)"
+              >
+                🥰
+              </div>
+              <div
+                class="character-btn"
+                onclick="selectCharacter('neutral', this)"
+              >
+                😊
+              </div>
+            </div>
+          </div>
+        </div>
 
-    <section class="hero" id="homeSection">
-      <img
-        src="https://cdn-icons-png.flaticon.com/512/616/616408.png"
-        alt="Karakter lucu"
-      />
-      <h2>Yuk Mulai Petualangan Belajarmu!</h2>
-      <p>
-        Di sini kamu bisa belajar, bermain, dan menemukan bakatmu. Belajar jadi
-        seru dan menyenangkan! 🌈
-      </p>
-      <button class="start-button" onclick="mulai()">Mulai Sekarang</button>
-    </section>
+        <div class="nav-tabs">
+          <button class="nav-tab active" onclick="showSection('modules', this)">
+            Belajar 📚
+          </button>
+          <button
+            class="nav-tab hidden"
+            id="chatTab"
+            onclick="showSection('chat', this)"
+          >
+            Curhat 💬
+          </button>
+          <button class="nav-tab" onclick="showSection('talents', this)">
+            Minat Bakat 🎨
+          </button>
+          <button class="nav-tab" onclick="showSection('report', this)">
+            Laporan 📊
+          </button>
+        </div>
 
-    <section class="age-selection" id="ageSelection">
-      <h2>Pilih Usia Kamu 👇</h2>
-      <a href="usia-3-6.html"
-        ><button class="age-button" onclick="playClick();">3–6 Tahun</button></a
-      >
-      <a href="usia-7-10.html"
-        ><button class="age-button" onclick="playClick();">
-          7–10 Tahun
-        </button></a
-      >
-      <a href="usia-11-13.html"
-        ><button class="age-button" onclick="playClick();">
-          11–13 Tahun
-        </button></a
-      >
-      <a href="usia-14-17.html"
-        ><button class="age-button" onclick="playClick();">
-          14–17 Tahun
-        </button></a
-      >
-    </section>
+        <!-- Learning Modules -->
+        <div id="modulesSection" class="section">
+          <div class="modules-grid" id="modulesGrid">
+            <!-- Modules will be generated by JavaScript -->
+          </div>
+        </div>
+
+        <!-- Question Area -->
+        <div id="questionSection" class="question-area">
+          <div class="progress-bar">
+            <div class="progress-fill" id="progressFill"></div>
+          </div>
+          <h3 id="questionText" class="question-text"></h3>
+          <div id="answersGrid" class="answers-grid"></div>
+          <div style="text-align: center; margin-top: 20px">
+            <button class="btn hidden" id="nextBtn" onclick="nextQuestion()">
+              Lanjut 👍
+            </button>
+            <button class="btn" onclick="showSection('modules')">
+              Kembali ke Menu
+            </button>
+          </div>
+        </div>
+
+        <!-- Chat Area -->
+        <div id="chatSection" class="chat-area">
+          <h3>Curhat Yuk! 💭</h3>
+          <div class="chat-messages" id="chatMessages"></div>
+          <div class="chat-input">
+            <input type="text" id="chatInput" placeholder="Cerita dong..." />
+            <button class="btn" onclick="sendChat()">Kirim</button>
+          </div>
+        </div>
+
+        <!-- Talents Section -->
+        <div id="talentsSection" class="section hidden">
+          <h3>Eksplorasi Minat & Bakat! 🌟</h3>
+          <div class="modules-grid" id="talentsGrid">
+            <!-- Talents modules will be generated -->
+          </div>
+        </div>
+
+        <!-- Report Area -->
+        <div id="reportSection" class="report-area">
+          <h3>Laporan Pembelajaran 📈</h3>
+          <div class="stats-grid">
+            <div class="stat-card">
+              <div class="stat-number" id="totalQuestions">0</div>
+              <div>Soal Dijawab</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-number" id="correctAnswers">0</div>
+              <div>Jawaban Benar</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-number" id="accuracyRate">0%</div>
+              <div>Tingkat Akurasi</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-number" id="studyTime">0</div>
+              <div>Menit Belajar</div>
+            </div>
+          </div>
+          <div style="margin-top: 30px">
+            <h4>Rekomendasi untuk Orang Tua:</h4>
+            <div
+              id="parentRecommendations"
+              style="
+                background: #f8f9fa;
+                padding: 20px;
+                border-radius: 10px;
+                margin-top: 15px;
+              "
+            >
+              <p>
+                Laporan akan muncul setelah anak menyelesaikan beberapa
+                aktivitas pembelajaran.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <script>
-      const clickSound = document.getElementById("clickSound");
-      const bgMusic = document.getElementById("bgMusic");
-      const homeSection = document.getElementById("homeSection");
-      const ageSelection = document.getElementById("ageSelection");
-      let musicStarted = false;
+      // Global variables
+      let userData = {};
+      let currentModule = "";
+      let currentQuestion = 0;
+      let questions = [];
+      let userStats = {
+        totalQuestions: 0,
+        correctAnswers: 0,
+        studyTime: 0,
+        startTime: Date.now(),
+      };
+      let selectedCharacter = "cute";
 
-      function mulai() {
-        clickSound.currentTime = 0;
-        clickSound.play();
+      // Age-based content
+      const contentByAge = {
+        kids: {
+          // 3-9 years
+          modules: [
+            {
+              id: "colors",
+              name: "Warna-warni",
+              icon: "🌈",
+              desc: "Belajar mengenal warna",
+            },
+            {
+              id: "numbers",
+              name: "Angka Ajaib",
+              icon: "🔢",
+              desc: "Bermain dengan angka",
+            },
+            {
+              id: "shapes",
+              name: "Bentuk-bentuk",
+              icon: "🔴",
+              desc: "Mengenal bentuk geometri",
+            },
+            {
+              id: "animals",
+              name: "Teman Hewan",
+              icon: "🐶",
+              desc: "Kenal dengan hewan",
+            },
+            {
+              id: "letters",
+              name: "Huruf ABC",
+              icon: "📝",
+              desc: "Belajar membaca",
+            },
+          ],
+          questions: {
+            colors: [
+              {
+                q: "Warna apel merah adalah...",
+                answers: ["Merah", "Biru", "Hijau", "Kuning"],
+                correct: 0,
+              },
+              {
+                q: "Warna langit cerah adalah...",
+                answers: ["Merah", "Biru", "Hijau", "Kuning"],
+                correct: 1,
+              },
+              {
+                q: "Warna daun adalah...",
+                answers: ["Merah", "Biru", "Hijau", "Kuning"],
+                correct: 2,
+              },
+              {
+                q: "Warna matahari adalah...",
+                answers: ["Merah", "Biru", "Hijau", "Kuning"],
+                correct: 3,
+              },
+              {
+                q: "Warna tomat adalah...",
+                answers: ["Merah", "Biru", "Hijau", "Kuning"],
+                correct: 0,
+              },
+            ],
+            numbers: [
+              { q: "1 + 1 = ?", answers: ["1", "2", "3", "4"], correct: 1 },
+              {
+                q: "Berapa jari di satu tangan?",
+                answers: ["3", "4", "5", "6"],
+                correct: 2,
+              },
+              { q: "2 + 2 = ?", answers: ["3", "4", "5", "6"], correct: 1 },
+              { q: "3 + 1 = ?", answers: ["3", "4", "5", "6"], correct: 1 },
+              { q: "5 - 2 = ?", answers: ["2", "3", "4", "5"], correct: 1 },
+            ],
+            shapes: [
+              {
+                q: "Lingkaran memiliki berapa sisi?",
+                answers: ["0", "1", "2", "3"],
+                correct: 0,
+              },
+              {
+                q: "Segitiga memiliki berapa sisi?",
+                answers: ["2", "3", "4", "5"],
+                correct: 1,
+              },
+              {
+                q: "Persegi memiliki berapa sisi?",
+                answers: ["3", "4", "5", "6"],
+                correct: 1,
+              },
+            ],
+          },
+        },
+        teen: {
+          // 10-17 years
+          modules: [
+            {
+              id: "math",
+              name: "Matematika",
+              icon: "🧮",
+              desc: "Aljabar dan Geometri",
+            },
+            {
+              id: "science",
+              name: "IPA",
+              icon: "🔬",
+              desc: "Fisika, Kimia, Biologi",
+            },
+            {
+              id: "social",
+              name: "IPS",
+              icon: "🌍",
+              desc: "Sejarah dan Geografi",
+            },
+            {
+              id: "language",
+              name: "Bahasa",
+              icon: "📖",
+              desc: "Bahasa Indonesia & Inggris",
+            },
+            {
+              id: "computer",
+              name: "Komputer",
+              icon: "💻",
+              desc: "Dasar-dasar IT",
+            },
+          ],
+          questions: {
+            math: [
+              {
+                q: "2x + 5 = 11, nilai x adalah...",
+                answers: ["2", "3", "4", "5"],
+                correct: 1,
+              },
+              {
+                q: "Luas lingkaran dengan jari-jari 7 cm adalah...",
+                answers: ["154 cm²", "144 cm²", "164 cm²", "174 cm²"],
+                correct: 0,
+              },
+              {
+                q: "Akar dari 144 adalah...",
+                answers: ["10", "11", "12", "13"],
+                correct: 2,
+              },
+              {
+                q: "3² + 4² = ?",
+                answers: ["25", "24", "23", "26"],
+                correct: 0,
+              },
+              {
+                q: "Sin 30° = ?",
+                answers: ["1/2", "1/3", "2/3", "3/2"],
+                correct: 0,
+              },
+            ],
+            science: [
+              {
+                q: "Rumus kimia air adalah...",
+                answers: ["H2O", "CO2", "NaCl", "CH4"],
+                correct: 0,
+              },
+              {
+                q: "Planet terdekat dengan matahari adalah...",
+                answers: ["Venus", "Merkurius", "Bumi", "Mars"],
+                correct: 1,
+              },
+              {
+                q: "Proses fotosintesis terjadi pada...",
+                answers: ["Akar", "Batang", "Daun", "Bunga"],
+                correct: 2,
+              },
+              {
+                q: "Kecepatan cahaya adalah...",
+                answers: [
+                  "300.000 km/s",
+                  "150.000 km/s",
+                  "450.000 km/s",
+                  "600.000 km/s",
+                ],
+                correct: 0,
+              },
+              {
+                q: "Unsur dengan lambang O adalah...",
+                answers: ["Osmium", "Oksigen", "Emas", "Besi"],
+                correct: 1,
+              },
+            ],
+            social: [
+              {
+                q: "Ibukota Indonesia adalah...",
+                answers: ["Jakarta", "Bandung", "Surabaya", "Medan"],
+                correct: 0,
+              },
+              {
+                q: "Proklamasi kemerdekaan RI tanggal...",
+                answers: [
+                  "17 Agustus 1945",
+                  "1 Juni 1945",
+                  "20 Mei 1908",
+                  "28 Oktober 1928",
+                ],
+                correct: 0,
+              },
+              {
+                q: "Benua terbesar di dunia adalah...",
+                answers: ["Afrika", "Asia", "Amerika", "Eropa"],
+                correct: 1,
+              },
+            ],
+          },
+        },
+        adult: {
+          // 18+ years
+          modules: [
+            {
+              id: "logic",
+              name: "Logika",
+              icon: "🧠",
+              desc: "Penalaran dan Problem Solving",
+            },
+            {
+              id: "research",
+              name: "Riset",
+              icon: "🔍",
+              desc: "Metodologi Penelitian",
+            },
+            {
+              id: "management",
+              name: "Manajemen",
+              icon: "📊",
+              desc: "Kepemimpinan dan Organisasi",
+            },
+            {
+              id: "critical",
+              name: "Berpikir Kritis",
+              icon: "💡",
+              desc: "Analisis dan Evaluasi",
+            },
+            {
+              id: "communication",
+              name: "Komunikasi",
+              icon: "🗣️",
+              desc: "Public Speaking & Writing",
+            },
+          ],
+          questions: {
+            logic: [
+              {
+                q: "Jika semua A adalah B, dan semua B adalah C, maka...",
+                answers: [
+                  "Semua A adalah C",
+                  "Semua C adalah A",
+                  "Tidak ada hubungan",
+                  "Sebagian A adalah C",
+                ],
+                correct: 0,
+              },
+              {
+                q: "Dalam silogisme, premis mayor adalah...",
+                answers: [
+                  "Pernyataan khusus",
+                  "Pernyataan umum",
+                  "Kesimpulan",
+                  "Hipotesis",
+                ],
+                correct: 1,
+              },
+              {
+                q: 'Fallacy "ad hominem" adalah...',
+                answers: [
+                  "Menyerang argumen",
+                  "Menyerang pribadi",
+                  "Menggunakan data",
+                  "Membuat analogi",
+                ],
+                correct: 1,
+              },
+            ],
+            research: [
+              {
+                q: "Hipotesis null (H0) adalah...",
+                answers: [
+                  "Hipotesis penelitian",
+                  "Hipotesis tandingan",
+                  "Hipotesis yang ditolak",
+                  "Hipotesis yang diuji",
+                ],
+                correct: 3,
+              },
+              {
+                q: "Sampling acak sederhana adalah...",
+                answers: [
+                  "Memilih subjek secara acak",
+                  "Memilih kelompok",
+                  "Memilih berdasarkan kriteria",
+                  "Memilih yang mudah dijangkau",
+                ],
+                correct: 0,
+              },
+            ],
+          },
+        },
+      };
 
-        if (!musicStarted) {
-          bgMusic.play();
-          musicStarted = true;
+      const talentModules = [
+        {
+          id: "coding",
+          name: "Coding",
+          icon: "💻",
+          desc: "Belajar pemrograman dasar",
+        },
+        {
+          id: "design",
+          name: "Desain",
+          icon: "🎨",
+          desc: "Kreativitas visual",
+        },
+        { id: "music", name: "Musik", icon: "🎵", desc: "Bermain musik" },
+        { id: "cooking", name: "Memasak", icon: "👩‍🍳", desc: "Simulasi masak" },
+        {
+          id: "business",
+          name: "Bisnis",
+          icon: "💼",
+          desc: "Kewirausahaan muda",
+        },
+        { id: "sports", name: "Olahraga", icon: "⚽", desc: "Aktivitas fisik" },
+      ];
+
+      function startPlatform() {
+        const name = document.getElementById("userName").value.trim();
+        const age = parseInt(document.getElementById("userAge").value);
+
+        if (!name || !age) {
+          alert("Mohon isi nama dan umur kamu ya! 😊");
+          return;
         }
 
-        homeSection.style.display = "none";
-        ageSelection.style.display = "flex";
+        userData = { name, age };
+
+        // Set age category
+        if (age <= 9) userData.category = "kids";
+        else if (age <= 17) userData.category = "teen";
+        else userData.category = "adult";
+
+        document.getElementById("loginScreen").style.display = "none";
+        document.getElementById("mainPlatform").style.display = "block";
+
+        initializePlatform();
       }
 
-      function playClick() {
-        clickSound.currentTime = 0;
-        clickSound.play();
+      function initializePlatform() {
+        // Set theme based on age
+        const body = document.body;
+        body.className = userData.category + "-mode";
+
+        // Setup welcome text
+        const welcomeText = document.getElementById("welcomeText");
+        welcomeText.textContent = `Halo ${userData.name}! ✨`;
+
+        // Show mood check for teens
+        if (userData.category === "teen") {
+          document.getElementById("moodCheck").classList.remove("hidden");
+          document.getElementById("moodButtons").classList.remove("hidden");
+          document.getElementById("chatTab").classList.remove("hidden");
+        }
+
+        // Generate modules
+        generateModules();
+        generateTalentModules();
+        updateStats();
       }
+
+      function generateModules() {
+        const grid = document.getElementById("modulesGrid");
+        const modules = contentByAge[userData.category].modules;
+
+        grid.innerHTML = modules
+          .map(
+            (module) => `
+                <div class="module-card" onclick="startModule('${module.id}')">
+                    <div class="module-icon">${module.icon}</div>
+                    <h4>${module.name}</h4>
+                    <p>${module.desc}</p>
+                </div>
+            `
+          )
+          .join("");
+      }
+
+      function generateTalentModules() {
+        const grid = document.getElementById("talentsGrid");
+
+        grid.innerHTML = talentModules
+          .map(
+            (module) => `
+                <div class="module-card" onclick="startTalentModule('${module.id}')">
+                    <div class="module-icon">${module.icon}</div>
+                    <h4>${module.name}</h4>
+                    <p>${module.desc}</p>
+                </div>
+            `
+          )
+          .join("");
+      }
+
+      function selectCharacter(type, element) {
+        selectedCharacter = type;
+
+        // Update character buttons
+        document.querySelectorAll(".character-btn").forEach((btn) => {
+          btn.classList.remove("active");
+        });
+        element.classList.add("active");
+
+        // Update avatar
+        const avatar = document.getElementById("userAvatar");
+        const avatars = { cool: "😎", cute: "🥰", neutral: "😊" };
+        avatar.textContent = avatars[type];
+      }
+
+      function setMood(mood) {
+        userData.mood = mood;
+        document.getElementById("moodCheck").classList.add("hidden");
+        document.getElementById("moodButtons").classList.add("hidden");
+
+        const responses = {
+          baik: "Wah senang denger itu! Yuk semangat belajar! 🌟",
+          kurang:
+            "Hmm, mau cerita dulu gak? Atau langsung belajar aja buat mood jadi lebih baik? 🤗",
+          biasa:
+            "Oke, semoga hari ini jadi lebih seru ya! Mari kita belajar! 😊",
+        };
+
+        if (mood === "kurang") {
+          setTimeout(() => {
+            if (confirm(responses[mood])) {
+              showSection("chat");
+            }
+          }, 1000);
+        } else {
+          showCelebration(responses[mood]);
+        }
+      }
+
+      function showSection(section, element) {
+        // Hide all sections
+        document
+          .querySelectorAll(
+            ".section, .question-area, .chat-area, .report-area"
+          )
+          .forEach((el) => {
+            el.classList.add("hidden");
+          });
+
+        // Update nav tabs
+        document.querySelectorAll(".nav-tab").forEach((tab) => {
+          tab.classList.remove("active");
+        });
+
+        // Show selected section
+        switch (section) {
+          case "modules":
+            document
+              .getElementById("modulesSection")
+              .classList.remove("hidden");
+            break;
+          case "chat":
+            document.getElementById("chatSection").classList.remove("hidden");
+            initChat();
+            break;
+          case "talents":
+            document
+              .getElementById("talentsSection")
+              .classList.remove("hidden");
+            break;
+          case "report":
+            document.getElementById("reportSection").classList.remove("hidden");
+            generateReport();
+            break;
+          case "question":
+            document
+              .getElementById("questionSection")
+              .classList.remove("hidden");
+            break;
+        }
+
+        // Update active tab
+        if (element) {
+          element.classList.add("active");
+        }
+      }
+
+      function startModule(moduleId) {
+        currentModule = moduleId;
+        const moduleQuestions =
+          contentByAge[userData.category].questions[moduleId];
+
+        if (!moduleQuestions) {
+          alert("Modul ini sedang dalam pengembangan! 🚧");
+          return;
+        }
+
+        questions = [...moduleQuestions];
+        currentQuestion = 0;
+
+        showSection("question");
+        loadQuestion();
+      }
+
+      function loadQuestion() {
+        if (currentQuestion >= questions.length) {
+          completeModule();
+          return;
+        }
+
+        const question = questions[currentQuestion];
+        document.getElementById("questionText").textContent = question.q;
+
+        // Update progress bar
+        const progress = ((currentQuestion + 1) / questions.length) * 100;
+        document.getElementById("progressFill").style.width = progress + "%";
+
+        // Generate answers
+        const answersGrid = document.getElementById("answersGrid");
+        answersGrid.innerHTML = question.answers
+          .map(
+            (answer, index) => `
+                <button class="answer-btn" onclick="selectAnswer(${index})">${answer}</button>
+            `
+          )
+          .join("");
+
+        document.getElementById("nextBtn").classList.add("hidden");
+      }
+
+      function selectAnswer(selectedIndex) {
+        const question = questions[currentQuestion];
+        const buttons = document.querySelectorAll(".answer-btn");
+
+        userStats.totalQuestions++;
+
+        buttons.forEach((btn, index) => {
+          btn.disabled = true;
+          if (index === question.correct) {
+            btn.classList.add("correct");
+          } else if (
+            index === selectedIndex &&
+            selectedIndex !== question.correct
+          ) {
+            btn.classList.add("incorrect");
+          }
+        });
+
+        if (selectedIndex === question.correct) {
+          userStats.correctAnswers++;
+          showCelebration("🎉 Benar! Hebat!");
+        } else {
+          showEncouragement();
+        }
+
+        setTimeout(() => {
+          document.getElementById("nextBtn").classList.remove("hidden");
+        }, 1500);
+      }
+
+      function nextQuestion() {
+        currentQuestion++;
+
+        // Check if 7 questions completed
+        if (currentQuestion === 7 && questions.length > 7) {
+          if (
+            confirm(
+              "Kamu mau lanjut belajar di sini atau coba lihat minat bakat kamu? 🌟\n\nKlik OK untuk lanjut belajar, Cancel untuk eksplorasi bakat"
+            )
+          ) {
+            loadQuestion();
+          } else {
+            showSection("talents");
+            return;
+          }
+        }
+
+        loadQuestion();
+      }
+
+      function completeModule() {
+        const accuracy = Math.round(
+          (userStats.correctAnswers / userStats.totalQuestions) * 100
+        );
+        let message = `Selamat! Kamu telah menyelesaikan modul ini! 🎊\n\n`;
+        message += `Tingkat akurasi: ${accuracy}%\n`;
+
+        if (accuracy >= 80) {
+          message += `Luar biasa! Kamu sangat hebat! 🌟`;
+        } else if (accuracy >= 60) {
+          message += `Bagus! Terus berlatih ya! 💪`;
+        } else {
+          message += `Tidak apa-apa, mari kita coba lagi dengan semangat! 😊`;
+        }
+
+        alert(message);
+        showSection("modules");
+        updateStats();
+      }
+
+      function startTalentModule(talentId) {
+        let message = "";
+
+        switch (talentId) {
+          case "coding":
+            message =
+              "🖥️ Simulasi Coding:\n\nKamu sedang membuat game sederhana!\n1. Buat karakter → ✅\n2. Tambah gerakan → ✅\n3. Buat musuh → 🎮\n\nWow! Kamu punya bakat coding!";
+            break;
+          case "design":
+            message =
+              "🎨 Simulasi Desain:\n\nKamu sedang mendesain poster!\n1. Pilih warna → 🌈\n2. Atur layout → ✨\n3. Tambah teks → ✏️\n\nKeren! Jiwa seni kamu tinggi!";
+            break;
+          case "music":
+            message =
+              "🎵 Simulasi Musik:\n\nKamu sedang bermain piano!\n🎹 Do-Re-Mi-Fa-Sol-La-Si\nMelodi yang indah!\n\nBakat musik kamu luar biasa!";
+            break;
+          case "cooking":
+            message =
+              "👩‍🍳 Simulasi Memasak:\n\n1. Siapkan bahan ✅\n2. Panaskan wajan 🔥\n⚠️ Hati-hati! Api terlalu besar!\n3. Masak dengan api sedang ✅\n\nEnak! Kamu jago masak!";
+            break;
+          case "business":
+            message =
+              "💼 Simulasi Bisnis:\n\nKamu buka toko kecil!\n💰 Modal: Rp 100.000\n📈 Keuntungan hari ini: Rp 50.000\n\nJiwa entrepreneur kamu bagus!";
+            break;
+          case "sports":
+            message =
+              "⚽ Simulasi Olahraga:\n\nKamu bermain sepak bola!\n🥅 Gol! Tendangan yang bagus!\n🏃‍♀️ Stamina: 85%\n\nKamu atlet yang hebat!";
+            break;
+        }
+
+        alert(message);
+
+        // Ask for parent permission for real practice
+        if (userData.age < 18) {
+          setTimeout(() => {
+            if (
+              confirm(
+                "Mau praktek langsung di dunia nyata? Kita minta izin orang tua dulu ya! 👨‍👩‍👧‍👦"
+              )
+            ) {
+              alert(
+                "Silakan minta bantuan orang tua untuk mendampingi aktivitas ini! 🤝"
+              );
+            }
+          }, 2000);
+        }
+      }
+
+      function initChat() {
+        const chatMessages = document.getElementById("chatMessages");
+        if (chatMessages.children.length === 0) {
+          addChatMessage(
+            "bot",
+            `Halo ${userData.name}! Aku di sini buat dengerin cerita kamu. Mau cerita apa nih? 😊`
+          );
+        }
+      }
+
+      function sendChat() {
+        const input = document.getElementById("chatInput");
+        const message = input.value.trim();
+
+        if (!message) return;
+
+        addChatMessage("user", message);
+        input.value = "";
+
+        // Simple AI responses
+        setTimeout(() => {
+          const response = generateChatResponse(message);
+          addChatMessage("bot", response);
+        }, 1000);
+      }
+
+      function addChatMessage(sender, message) {
+        const chatMessages = document.getElementById("chatMessages");
+        const messageDiv = document.createElement("div");
+        messageDiv.className = `message ${sender}`;
+        messageDiv.textContent = message;
+        chatMessages.appendChild(messageDiv);
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+      }
+
+      function generateChatResponse(userMessage) {
+        const responses = [
+          "Iya, aku ngerti banget perasaan kamu 😊",
+          "Wah, cerita yang menarik! Terus dong...",
+          "Hmm, gitu ya... gimana perasaan kamu tentang itu?",
+          "Aku dengerin kok, lanjut cerita aja 💙",
+          "Oh gitu, pasti kamu ngerasa campur aduk ya",
+          "Iya betul banget! Kadang emang gitu kan",
+          "Wajar kok kalo kamu ngerasa kayak gitu",
+          "Kamu udah hebat lho mau cerita sama aku 🌟",
+        ];
+
+        // Simple keyword matching
+        const lowerMessage = userMessage.toLowerCase();
+        if (lowerMessage.includes("sedih") || lowerMessage.includes("kesal")) {
+          return "Yah, pasti ga enak banget ya rasanya 😔 Mau cerita lebih detail ga?";
+        } else if (
+          lowerMessage.includes("senang") ||
+          lowerMessage.includes("bahagia")
+        ) {
+          return "Wah asyik banget! Aku ikut seneng denger kamu bahagia! 🌈";
+        } else if (
+          lowerMessage.includes("bingung") ||
+          lowerMessage.includes("susah")
+        ) {
+          return "Hmm, emang kadang hidup tuh bikin bingung ya. Tapi kamu pasti bisa kok! 💪";
+        }
+
+        return responses[Math.floor(Math.random() * responses.length)];
+      }
+
+      function generateReport() {
+        updateStats();
+
+        const recommendations = [];
+        const accuracy =
+          userStats.totalQuestions > 0
+            ? Math.round(
+                (userStats.correctAnswers / userStats.totalQuestions) * 100
+              )
+            : 0;
+
+        if (accuracy >= 80) {
+          recommendations.push(
+            "✅ Anak menunjukkan pemahaman yang sangat baik!"
+          );
+          recommendations.push("🚀 Siap untuk materi yang lebih menantang");
+        } else if (accuracy >= 60) {
+          recommendations.push("📚 Perlu latihan tambahan di beberapa area");
+          recommendations.push("🎯 Fokus pada materi yang masih lemah");
+        } else if (userStats.totalQuestions > 0) {
+          recommendations.push(
+            "⏰ Butuh waktu lebih untuk memahami konsep dasar"
+          );
+          recommendations.push("🤝 Dampingi anak saat belajar");
+        }
+
+        if (userStats.studyTime < 10) {
+          recommendations.push("⏱️ Waktu belajar masih bisa ditingkatkan");
+        }
+
+        if (userData.mood === "kurang") {
+          recommendations.push("💙 Perhatikan kondisi emosional anak");
+          recommendations.push("🗣️ Ajak anak untuk lebih terbuka bercerita");
+        }
+
+        document.getElementById("parentRecommendations").innerHTML =
+          recommendations.length > 0
+            ? recommendations.join("<br>")
+            : "<p>Anak baru memulai pembelajaran. Pantau terus perkembangannya! 😊</p>";
+      }
+
+      function updateStats() {
+        userStats.studyTime = Math.floor(
+          (Date.now() - userStats.startTime) / 60000
+        );
+
+        document.getElementById("totalQuestions").textContent =
+          userStats.totalQuestions;
+        document.getElementById("correctAnswers").textContent =
+          userStats.correctAnswers;
+        document.getElementById("accuracyRate").textContent =
+          userStats.totalQuestions > 0
+            ? Math.round(
+                (userStats.correctAnswers / userStats.totalQuestions) * 100
+              ) + "%"
+            : "0%";
+        document.getElementById("studyTime").textContent = userStats.studyTime;
+      }
+
+      function showCelebration(text) {
+        const celebration = document.createElement("div");
+        celebration.className = "celebration";
+        celebration.textContent = text;
+        document.body.appendChild(celebration);
+
+        setTimeout(() => {
+          if (document.body.contains(celebration)) {
+            document.body.removeChild(celebration);
+          }
+        }, 2000);
+      }
+
+      function showEncouragement() {
+        const encouragements = [
+          "💪 Hampir benar! Coba lagi ya!",
+          "📚 Tidak apa-apa, kita belajar terus!",
+          "⭐ Yuk semangat! Kamu pasti bisa!",
+          "👏 Bagus sudah berusaha!",
+        ];
+
+        const text =
+          encouragements[Math.floor(Math.random() * encouragements.length)];
+        showCelebration(text);
+      }
+
+      // Handle enter key in chat
+      document.addEventListener("DOMContentLoaded", function () {
+        const chatInput = document.getElementById("chatInput");
+        if (chatInput) {
+          chatInput.addEventListener("keypress", function (e) {
+            if (e.key === "Enter") {
+              sendChat();
+            }
+          });
+        }
+
+        console.log("EduPlay Platform Ready! 🚀");
+      });
+
+      // Auto-save progress (simulated)
+      setInterval(() => {
+        if (userData.name) {
+          console.log("Progress saved:", {
+            user: userData.name,
+            stats: userStats,
+            timestamp: new Date(),
+          });
+        }
+      }, 30000); // Save every 30 seconds
     </script>
   </body>
 </html>
