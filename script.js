@@ -401,4 +401,12 @@ function showEncouragement() {
 // Debug
 document.addEventListener("DOMContentLoaded", () => {
   console.log("EduPlay siap 🚀");
+
+  // Mood Check
+  document.querySelectorAll(".mood-btn").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const mood = btn.dataset.mood; // ambil data-mood dari tombol
+      alert(`Kamu merasa ${mood} hari ini 😊`);
+    });
+  });
 });
